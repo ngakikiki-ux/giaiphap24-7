@@ -198,9 +198,14 @@ export default function App() {
       {/* Header */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'}`}>
         <div className="container mx-auto px-4 flex justify-between items-center">
-          <a href="#" className="text-2xl font-extrabold text-primary flex items-center gap-2">
-            <span className="bg-primary text-white p-1 rounded">Ti</span> Toàn
-          </a>
+          <motion.a 
+            href="#" 
+            whileHover={{ scale: 1.05 }}
+            className="text-2xl font-extrabold text-primary flex items-center gap-2 group"
+          >
+            <span className="bg-primary text-white p-1 rounded shadow-lg group-hover:bg-secondary transition-colors">GP</span> 
+            <span className="tracking-tight">Giải pháp <span className="text-secondary">24/7</span></span>
+          </motion.a>
 
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center gap-8 font-medium">
@@ -306,7 +311,7 @@ export default function App() {
       <section id="services" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6">Tại sao chọn dịch vụ của Ti Toàn?</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-6">Tại sao chọn dịch vụ của <span className="text-primary">Giải pháp 24/7</span>?</h2>
             <p className="text-slate-600 text-lg">
               Chúng tôi không chỉ làm website, chúng tôi xây dựng công cụ giúp bạn bán hàng hiệu quả hơn mỗi ngày.
             </p>
@@ -513,7 +518,7 @@ export default function App() {
             <div className="md:w-2/5 bg-primary p-12 text-white">
               <h2 className="text-3xl font-bold mb-6">Liên hệ với chúng tôi</h2>
               <p className="text-blue-100 mb-12">
-                Để lại thông tin, Ti Toàn sẽ liên hệ tư vấn giải pháp tối ưu nhất cho bạn trong vòng 30 phút.
+                Để lại thông tin, <span className="font-bold text-white underline decoration-secondary decoration-2 underline-offset-4">Giải pháp 24/7</span> sẽ liên hệ tư vấn giải pháp tối ưu nhất cho bạn trong vòng 30 phút.
               </p>
               
               <div className="space-y-8">
@@ -533,7 +538,7 @@ export default function App() {
                   </div>
                   <div>
                     <p className="text-xs text-blue-200 uppercase font-bold mb-1">Email</p>
-                    <p className="text-lg font-bold">toan@titoan.vn</p>
+                    <p className="text-lg font-bold">contact@giaiphap247.vn</p>
                   </div>
                 </div>
                 
@@ -556,7 +561,7 @@ export default function App() {
                     <Send size={40} />
                   </div>
                   <h3 className="text-2xl font-bold mb-2">Gửi thông tin thành công!</h3>
-                  <p className="text-slate-600">Cảm ơn bạn đã quan tâm. Ti Toàn sẽ liên hệ với bạn sớm nhất có thể.</p>
+                  <p className="text-slate-600">Cảm ơn bạn đã quan tâm. <span className="font-bold text-primary">Giải pháp 24/7</span> sẽ liên hệ với bạn sớm nhất có thể.</p>
                 </div>
               ) : (
                 <form onSubmit={handleFormSubmit} className="space-y-6">
@@ -613,8 +618,9 @@ export default function App() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-2">
-              <a href="#" className="text-3xl font-extrabold text-white flex items-center gap-2 mb-6">
-                <span className="bg-primary text-white p-1 rounded">Ti</span> Toàn
+              <a href="#" className="text-3xl font-extrabold text-white flex items-center gap-2 mb-6 group">
+                <span className="bg-primary text-white p-1 rounded shadow-xl group-hover:bg-secondary transition-colors">GP</span> 
+                <span>Giải pháp <span className="text-secondary">24/7</span></span>
               </a>
               <p className="text-slate-400 max-w-md mb-6">
                 Chuyên gia thiết kế website và cung cấp các giải pháp công nghệ giúp doanh nghiệp chuyển đổi số hiệu quả, tối ưu doanh thu bán hàng online.
@@ -645,7 +651,7 @@ export default function App() {
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail size={18} className="text-primary" />
-                  <span>toan@titoan.vn</span>
+                  <span>contact@giaiphap247.vn</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <MapPin size={18} className="text-primary" />
@@ -656,8 +662,8 @@ export default function App() {
           </div>
           
           <div className="pt-8 border-t border-white/10 text-center text-slate-500 text-sm">
-            <p className="mb-2">© 2024 Ti Toàn. Tất cả quyền được bảo lưu.</p>
-            <p>Ứng dụng này được phát triển bởi <span className="text-white font-bold">Ti Toàn</span></p>
+            <p className="mb-2">© 2024 Giải pháp 24/7. Tất cả quyền được bảo lưu.</p>
+            <p>Ứng dụng này được phát triển bởi <span className="text-white font-bold">Giải pháp 24/7</span></p>
           </div>
         </div>
       </footer>
