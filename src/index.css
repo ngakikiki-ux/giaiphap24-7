@@ -2,9 +2,11 @@
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --color-primary: #1e40af; /* Blue */
-  --color-secondary: #dc2626; /* Red */
-  --color-accent: #eff6ff; /* Light Blue */
+  --font-serif: "Playfair Display", serif;
+  --color-primary: #0f172a; /* Deep Slate */
+  --color-secondary: #334155; /* Muted Slate */
+  --color-accent: #b45309; /* Amber 700 - Bronze/Gold feel */
+  --color-surface: #f8fafc;
 }
 
 @layer base {
@@ -16,4 +18,4 @@
   }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
