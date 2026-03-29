@@ -232,11 +232,69 @@ const upgradeServices = [
   }
 ];
 
+const categories = ['Tất cả', 'Bất động sản', 'Thời trang', 'Nội thất', 'Ẩm thực', 'Giáo dục', 'Dịch vụ'];
+
+const templates = [
+  // Bất động sản
+  { id: 1, category: 'Bất động sản', title: 'Bất động sản Cao cấp', desc: 'Tối ưu hiển thị dự án, tích hợp bản đồ và form đăng ký tư vấn chuyên sâu.', image: 'https://picsum.photos/seed/re1/1200/800', features: ['Quản lý giỏ hàng', 'Tìm kiếm thông minh', 'Tích hợp Google Maps', 'Landing page dự án'] },
+  { id: 7, category: 'Bất động sản', title: 'Sàn giao dịch căn hộ', desc: 'Giao diện hiện đại cho các sàn phân phối chung cư, căn hộ cao cấp.', image: 'https://picsum.photos/seed/re2/1200/800', features: ['Lọc theo diện tích', 'Tính toán khoản vay', 'So sánh dự án', 'VR 360 Tour'] },
+  { id: 8, category: 'Bất động sản', title: 'Dự án nghỉ dưỡng & Villa', desc: 'Tôn vinh vẻ đẹp không gian sống thượng lưu với hình ảnh tràn viền.', image: 'https://picsum.photos/seed/re3/1200/800', features: ['Thư viện ảnh 4K', 'Đặt lịch tham quan', 'Tiện ích dự án', 'Video giới thiệu'] },
+  { id: 9, category: 'Bất động sản', title: 'Website môi giới cá nhân', desc: 'Xây dựng thương hiệu cá nhân chuyên nghiệp cho chuyên viên tư vấn.', image: 'https://picsum.photos/seed/re4/1200/800', features: ['Blog tin tức', 'Review dự án', 'Nút gọi điện nhanh', 'Form thu thập lead'] },
+  { id: 10, category: 'Bất động sản', title: 'Quản lý cho thuê văn phòng', desc: 'Chuyên biệt cho dịch vụ cho thuê mặt bằng, văn phòng chia sẻ.', image: 'https://picsum.photos/seed/re5/1200/800', features: ['Sơ đồ mặt bằng', 'Bảng giá thuê', 'Quản lý hợp đồng', 'Tư vấn setup'] },
+  { id: 11, category: 'Bất động sản', title: 'Dự án đất nền & Phân lô', desc: 'Giao diện trực quan cho các dự án đất nền tỉnh, pháp lý minh bạch.', image: 'https://picsum.photos/seed/re6/1200/800', features: ['Bản đồ phân lô', 'Tiến độ pháp lý', 'Cập nhật hạ tầng', 'Hỗ trợ vay vốn'] },
+
+  // Thời trang
+  { id: 2, category: 'Thời trang', title: 'Fashion Store Hiện đại', desc: 'Trải nghiệm mua sắm mượt mà, tập trung vào hình ảnh sản phẩm.', image: 'https://picsum.photos/seed/fa1/1200/800', features: ['Bộ lọc sản phẩm', 'Giỏ hàng thông minh', 'Tích hợp thanh toán', 'Lookbook nghệ thuật'] },
+  { id: 12, category: 'Thời trang', title: 'Local Brand Streetwear', desc: 'Phong cách cá tính, trẻ trung dành cho các thương hiệu thời trang nội địa.', image: 'https://picsum.photos/seed/fa2/1200/800', features: ['Countdown mở bán', 'Review khách hàng', 'Tích điểm thành viên', 'Instagram Feed'] },
+  { id: 13, category: 'Thời trang', title: 'Shop Giày dép & Phụ kiện', desc: 'Bố cục lưới tinh tế, làm nổi bật chi tiết và chất liệu sản phẩm.', image: 'https://picsum.photos/seed/fa3/1200/800', features: ['Lọc theo size/màu', 'Bảng quy đổi size', 'Sản phẩm liên quan', 'Mua kèm deal sốc'] },
+  { id: 14, category: 'Thời trang', title: 'Thời trang Trẻ em (Kids)', desc: 'Màu sắc sinh động, giao diện thân thiện giúp mẹ dễ dàng chọn đồ cho bé.', image: 'https://picsum.photos/seed/fa4/1200/800', features: ['Lọc theo độ tuổi', 'Combo tiết kiệm', 'Chính sách đổi trả', 'Blog nuôi dạy con'] },
+  { id: 15, category: 'Thời trang', title: 'Đồ thể thao & Gymwear', desc: 'Mạnh mẽ, năng động, tối ưu cho việc hiển thị tính năng vải và form dáng.', image: 'https://picsum.photos/seed/fa5/1200/800', features: ['Video sản phẩm', 'Hướng dẫn tập luyện', 'Tư vấn chọn size', 'Feedback thực tế'] },
+  { id: 16, category: 'Thời trang', title: 'Trang sức & Phụ kiện cao cấp', desc: 'Sang trọng, tối giản, tập trung vào độ sắc nét và lấp lánh của sản phẩm.', image: 'https://picsum.photos/seed/fa6/1200/800', features: ['Zoom ảnh chi tiết', 'Chứng thư kiểm định', 'Quà tặng kèm', 'Giao hàng hỏa tốc'] },
+
+  // Nội thất
+  { id: 3, category: 'Nội thất', title: 'Nội thất Sang trọng', desc: 'Phong cách tối giản, tôn vinh vẻ đẹp không gian và chi tiết sản phẩm.', image: 'https://picsum.photos/seed/in1/1200/800', features: ['Thư viện ảnh 360', 'Danh mục sản phẩm', 'Tư vấn thiết kế', 'Blog xu hướng'] },
+  { id: 17, category: 'Nội thất', title: 'Xưởng mộc & Đồ gỗ tự nhiên', desc: 'Mộc mạc, uy tín, tập trung vào quy trình sản xuất và chất lượng gỗ.', image: 'https://picsum.photos/seed/in2/1200/800', features: ['Quy trình sản xuất', 'Bảo hành dài hạn', 'Mẫu gỗ thực tế', 'Dự án đã thi công'] },
+  { id: 18, category: 'Nội thất', title: 'Thiết kế thi công trọn gói', desc: 'Giao diện chuyên nghiệp cho các công ty kiến trúc và decor.', image: 'https://picsum.photos/seed/in3/1200/800', features: ['Báo giá nhanh', 'Quy trình làm việc', 'Đội ngũ kiến trúc sư', 'Công trình thực tế'] },
+  { id: 19, category: 'Nội thất', title: 'Đồ gia dụng thông minh', desc: 'Hiện đại, công nghệ, tối ưu cho các sản phẩm nội thất đa năng.', image: 'https://picsum.photos/seed/in4/1200/800', features: ['Video hướng dẫn', 'Thông số kỹ thuật', 'So sánh tính năng', 'Đánh giá chuyên gia'] },
+  { id: 20, category: 'Nội thất', title: 'Rèm cửa & Giấy dán tường', desc: 'Trực quan, dễ chọn mẫu với hệ thống phân loại màu sắc và họa tiết.', image: 'https://picsum.photos/seed/in5/1200/800', features: ['Tính toán mét vuông', 'Mẫu vải thực tế', 'Tư vấn tại nhà', 'Hình ảnh thực tế'] },
+  { id: 21, category: 'Nội thất', title: 'Đèn trang trí & Decor', desc: 'Lung linh, nghệ thuật, tập trung vào hiệu ứng ánh sáng trong không gian.', image: 'https://picsum.photos/seed/in6/1200/800', features: ['Phối cảnh ánh sáng', 'Combo trang trí', 'Hướng dẫn lắp đặt', 'Đổi trả 7 ngày'] },
+
+  // Ẩm thực
+  { id: 4, category: 'Ẩm thực', title: 'Nhà hàng & Quán Cafe', desc: 'Menu trực quan, tích hợp đặt bàn và đặt món online nhanh chóng.', image: 'https://picsum.photos/seed/fo1/1200/800', features: ['Menu điện tử', 'Đặt bàn trực tuyến', 'Đánh giá khách hàng', 'Tích hợp giao hàng'] },
+  { id: 22, category: 'Ẩm thực', title: 'Tiệm Bánh & Trà sữa', desc: 'Ngọt ngào, bắt mắt, kích thích vị giác ngay từ cái nhìn đầu tiên.', image: 'https://picsum.photos/seed/fo2/1200/800', features: ['Topping tùy chọn', 'Giao hàng nhanh', 'Khuyến mãi giờ vàng', 'Feedback hình ảnh'] },
+  { id: 23, category: 'Ẩm thực', title: 'Quán Nhậu & Beer Club', desc: 'Sôi động, menu đa dạng, tập trung vào không gian và các món đặc sản.', image: 'https://picsum.photos/seed/fo3/1200/800', features: ['Đặt tiệc nhóm', 'Sơ đồ bàn', 'Chương trình ca nhạc', 'Ưu đãi sinh nhật'] },
+  { id: 24, category: 'Ẩm thực', title: 'Đồ ăn nhanh & Delivery', desc: 'Tối ưu tốc độ đặt hàng và thanh toán trên thiết bị di động.', image: 'https://picsum.photos/seed/fo4/1200/800', features: ['Theo dõi đơn hàng', 'Mã giảm giá', 'Thanh toán ví điện tử', 'Combo giá rẻ'] },
+  { id: 25, category: 'Ẩm thực', title: 'Thực phẩm sạch & Organic', desc: 'Xanh, sạch, tin cậy, tập trung vào nguồn gốc và quy trình kiểm định.', image: 'https://picsum.photos/seed/fo5/1200/800', features: ['Truy xuất nguồn gốc', 'Chứng chỉ an toàn', 'Gói đi chợ tuần', 'Công thức nấu ăn'] },
+  { id: 26, category: 'Ẩm thực', title: 'Buffet & Tiệc cưới', desc: 'Hoành tráng, chuyên nghiệp, hỗ trợ quản lý số lượng khách lớn.', image: 'https://picsum.photos/seed/fo6/1200/800', features: ['Sảnh tiệc 360', 'Thực đơn theo set', 'Quản lý sự kiện', 'Báo giá trọn gói'] },
+
+  // Giáo dục
+  { id: 5, category: 'Giáo dục', title: 'Trung tâm & Khóa học', desc: 'Quản lý khóa học, giảng viên và hệ thống đăng ký học trực tuyến.', image: 'https://picsum.photos/seed/ed1/1200/800', features: ['Lịch học trực tuyến', 'Quản lý học viên', 'Giới thiệu giảng viên', 'Thanh toán học phí'] },
+  { id: 27, category: 'Giáo dục', title: 'Trường mầm non tư thục', desc: 'Thân thiện, an tâm, tập trung vào cơ sở vật chất và chế độ dinh dưỡng.', image: 'https://picsum.photos/seed/ed2/1200/800', features: ['Thực đơn hàng tuần', 'Camera trực tuyến', 'Hoạt động ngoại khóa', 'Góc phụ huynh'] },
+  { id: 28, category: 'Giáo dục', title: 'Trung tâm Ngoại ngữ', desc: 'Hiện đại, chuyên nghiệp, tích hợp thi thử và kiểm tra trình độ.', image: 'https://picsum.photos/seed/ed3/1200/800', features: ['Thi thử online', 'Lộ trình học tập', 'Đội ngũ GV bản ngữ', 'Cam kết đầu ra'] },
+  { id: 29, category: 'Giáo dục', title: 'Đào tạo kỹ năng mềm', desc: 'Giao diện truyền cảm hứng, tập trung vào giá trị nhận được sau khóa học.', image: 'https://picsum.photos/seed/ed4/1200/800', features: ['Video bài giảng', 'Cộng đồng học viên', 'Chứng chỉ hoàn thành', 'Hỗ trợ sau học'] },
+  { id: 30, category: 'Giáo dục', title: 'Du học & Định cư', desc: 'Uy tín, thông tin đầy đủ về các quốc gia và quy trình làm hồ sơ.', image: 'https://picsum.photos/seed/ed5/1200/800', features: ['Cẩm nang du học', 'Săn học bổng', 'Tư vấn visa', 'Câu chuyện thành công'] },
+  { id: 31, category: 'Giáo dục', title: 'Luyện thi đại học online', desc: 'Tối ưu cho việc học tập và làm bài tập ngay trên website.', image: 'https://picsum.photos/seed/ed6/1200/800', features: ['Ngân hàng câu hỏi', 'Xếp hạng học tập', 'Giải đáp 24/7', 'Tài liệu miễn phí'] },
+
+  // Dịch vụ
+  { id: 6, category: 'Dịch vụ', title: 'Dịch vụ Chuyên nghiệp', desc: 'Phù hợp cho các công ty tư vấn, spa, hoặc dịch vụ kỹ thuật.', image: 'https://picsum.photos/seed/se1/1200/800', features: ['Bảng giá dịch vụ', 'Đội ngũ chuyên gia', 'Quy trình làm việc', 'Form báo giá nhanh'] },
+  { id: 32, category: 'Dịch vụ', title: 'Spa & Thẩm mỹ viện', desc: 'Thư giãn, sang trọng, tích hợp đặt lịch hẹn và quản lý liệu trình.', image: 'https://picsum.photos/seed/se2/1200/800', features: ['Đặt lịch online', 'Gói liệu trình', 'Review kết quả', 'Chat tư vấn'] },
+  { id: 33, category: 'Dịch vụ', title: 'Studio Ảnh cưới', desc: 'Nghệ thuật, cảm xúc, tôn vinh những khoảnh khắc hạnh phúc.', image: 'https://picsum.photos/seed/se3/1200/800', features: ['Album ảnh mẫu', 'Bảng giá chụp', 'Lịch trống', 'Quy trình phục vụ'] },
+  { id: 34, category: 'Dịch vụ', title: 'Vận tải & Logistics', desc: 'Mạnh mẽ, tin cậy, tích hợp tra cứu vận đơn và báo giá vận chuyển.', image: 'https://picsum.photos/seed/se4/1200/800', features: ['Tra cứu đơn hàng', 'Tính cước phí', 'Mạng lưới bưu cục', 'Tuyển dụng tài xế'] },
+  { id: 35, category: 'Dịch vụ', title: 'Sửa chữa Điện lạnh/Ô tô', desc: 'Rõ ràng, minh bạch, tập trung vào bảng giá và cam kết chất lượng.', image: 'https://picsum.photos/seed/se5/1200/800', features: ['Bảng giá linh kiện', 'Đặt lịch sửa chữa', 'Bảo hành điện tử', 'Cứu hộ 24/7'] },
+  { id: 36, category: 'Dịch vụ', title: 'Luật sư & Tư vấn Pháp lý', desc: 'Nghiêm túc, uy tín, cung cấp kiến thức pháp luật và dịch vụ tư vấn.', image: 'https://picsum.photos/seed/se6/1200/800', features: ['Hỏi đáp pháp luật', 'Lĩnh vực tư vấn', 'Hồ sơ năng lực', 'Đặt lịch hẹn'] },
+];
+
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeCategory, setActiveCategory] = useState('Tất cả');
+  const [selectedTemplate, setSelectedTemplate] = useState<typeof templates[0] | null>(null);
   const [formData, setFormData] = useState({ name: '', phone: '', note: '' });
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+
+  const filteredTemplates = activeCategory === 'Tất cả' 
+    ? templates 
+    : templates.filter(t => t.category === activeCategory);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -657,35 +715,148 @@ export default function App() {
       <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Một số giao diện/định hướng bên em có thể triển khai</h2>
-            <div className="w-24 h-1 bg-accent mx-auto"></div>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Kho giao diện website mẫu đẳng cấp</h2>
+            <div className="w-24 h-1 bg-accent mx-auto mb-6"></div>
+            <p className="text-slate-600 max-w-2xl mx-auto mb-10">Khám phá các mẫu website được tối ưu riêng cho từng ngành nghề, giúp bạn bứt phá doanh thu ngay hôm nay.</p>
+            
+            {/* Category Filter */}
+            <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`px-6 py-2 rounded-full text-sm font-bold transition-all duration-300 ${
+                    activeCategory === cat 
+                      ? 'bg-primary text-white shadow-lg scale-105' 
+                      : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
-              <motion.div 
-                key={item}
-                whileHover={{ scale: 1.03 }}
-                className="rounded-2xl overflow-hidden shadow-lg bg-white group"
-              >
-                <div className="relative overflow-hidden aspect-video">
-                  <img 
-                    src={`https://picsum.photos/seed/portfolio${item}/800/600`} 
-                    alt={`Dự án mẫu ${item}`} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <button className="px-6 py-2 bg-white text-primary font-bold rounded-full">Xem chi tiết</button>
+
+          <motion.div 
+            layout
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            <AnimatePresence mode="popLayout">
+              {filteredTemplates.map((template) => (
+                <motion.div 
+                  layout
+                  key={template.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  whileHover={{ y: -10 }}
+                  className="rounded-2xl overflow-hidden shadow-lg bg-white group cursor-pointer border border-slate-100"
+                  onClick={() => setSelectedTemplate(template)}
+                >
+                  <div className="relative overflow-hidden aspect-video">
+                    <img 
+                      src={template.image} 
+                      alt={template.title} 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+                      <div className="bg-white text-primary px-8 py-3 rounded-full font-bold shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                        Xem mẫu thực tế
+                      </div>
+                    </div>
+                    <div className="absolute top-4 left-4">
+                      <span className="bg-accent text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
+                        {template.category}
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div className="p-4">
-                  <p className="font-bold text-slate-800">Website mẫu ngành {item === 1 ? 'Bất động sản' : item === 2 ? 'Thời trang' : item === 3 ? 'Dịch vụ' : item === 4 ? 'Nội thất' : item === 5 ? 'Ẩm thực' : 'Giáo dục'}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                  <div className="p-6">
+                    <h3 className="font-bold text-xl text-slate-900 mb-2 group-hover:text-secondary transition-colors">{template.title}</h3>
+                    <p className="text-slate-500 text-sm line-clamp-2 font-light">{template.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
         </div>
       </section>
+
+      {/* Template Modal */}
+      <AnimatePresence>
+        {selectedTemplate && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 bg-slate-900/90 backdrop-blur-md"
+            onClick={() => setSelectedTemplate(null)}
+          >
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="bg-white w-full max-w-6xl max-h-[90vh] rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row relative"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                className="absolute top-6 right-6 z-10 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all"
+                onClick={() => setSelectedTemplate(null)}
+              >
+                <X size={24} className="text-primary" />
+              </button>
+
+              <div className="md:w-2/3 bg-slate-100 overflow-y-auto custom-scrollbar">
+                <img 
+                  src={selectedTemplate.image} 
+                  alt={selectedTemplate.title} 
+                  className="w-full h-auto"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+
+              <div className="md:w-1/3 p-8 md:p-12 flex flex-col justify-between bg-white">
+                <div>
+                  <span className="inline-block bg-accent/10 text-accent px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+                    Mẫu website {selectedTemplate.category}
+                  </span>
+                  <h2 className="text-3xl font-bold text-primary mb-6 leading-tight">{selectedTemplate.title}</h2>
+                  <p className="text-slate-600 mb-8 leading-relaxed font-light">
+                    {selectedTemplate.desc}
+                  </p>
+                  
+                  <div className="space-y-4 mb-10">
+                    <h4 className="font-bold text-sm uppercase tracking-widest text-slate-400">Tính năng nổi bật:</h4>
+                    <div className="grid grid-cols-1 gap-3">
+                      {selectedTemplate.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-center gap-3 text-slate-700">
+                          <div className="w-5 h-5 bg-green-100 text-green-600 rounded-full flex items-center justify-center shrink-0">
+                            <Check size={12} />
+                          </div>
+                          <span className="text-sm font-medium">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <a 
+                    href="#contact" 
+                    onClick={() => setSelectedTemplate(null)}
+                    className="block w-full bg-primary text-white text-center py-4 rounded-xl font-bold hover:bg-slate-800 transition-all shadow-xl shadow-slate-200"
+                  >
+                    Tư vấn triển khai mẫu này
+                  </a>
+                  <p className="text-center text-xs text-slate-400">
+                    * Giao diện có thể tùy chỉnh 100% theo yêu cầu của bạn
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Commitment Section */}
       <section className="py-20 bg-white">
